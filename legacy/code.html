@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OptiBox | Pack smarter. Ship cheaper. Waste less.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#3f465c",
+                        "outline": "#76777d",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-fixed": "#131b2e",
+                        "on-background": "#0b1c30",
+                        "inverse-surface": "#213145",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary-container": "#684000",
+                        "on-secondary-fixed": "#2a1700",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary": "#000000",
+                        "surface-container": "#e5eeff",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#45464d",
+                        "background": "#f8f9ff",
+                        "secondary": "#855300",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "primary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface": "#f8f9ff",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "tertiary-container": "#002113",
+                        "on-tertiary-container": "#009668",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-high": "#dce9ff",
+                        "secondary-container": "#fea619",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#000000",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container-low": "#eff4ff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-tint": "#565e74",
+                        "surface-dim": "#cbdbf5",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-surface": "#0b1c30",
+                        "surface-bright": "#f8f9ff",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffddb8",
+                        "on-tertiary-fixed": "#002113"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "max-width": "1440px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "mono-data": ["JetBrains Mono"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "mono-data": ["13px", {"lineHeight": "1", "letterSpacing": "0", "fontWeight": "500"}],
+                        "headline-sm": ["18px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .industrial-border { border: 1px solid #E2E8F0; }
+        .dark-section { background-color: #0F172A; }
+        .hero-visual {
+            position: relative;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(69, 70, 77, 0.12) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(69, 70, 77, 0.12) 1px, transparent 1px);
+            background-size: 28px 28px;
+            mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+            pointer-events: none;
+        }
+        .hero-pack-scene {
+            position: relative;
+            width: min(100%, 430px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            z-index: 1;
+        }
+        .hero-metrics {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .hero-pill {
+            padding: 8px 14px;
+            border: 1px solid #c6c6cd;
+            background: #ffffff;
+            color: #0b1c30;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .hero-pill.strong {
+            border-color: #fea619;
+            background: #fff7ea;
+            color: #7a4a00;
+        }
+        .hero-drop-zone {
+            position: relative;
+            width: 190px;
+            height: 120px;
+        }
+        .falling-block {
+            position: absolute;
+            top: 0;
+            width: 34px;
+            height: 24px;
+            border: 1px solid #8f9ab0;
+            background: #dae2fd;
+            animation: block-drop 3.2s ease-in-out infinite;
+        }
+        .falling-block:nth-child(1) { left: 12px; animation-delay: 0s; }
+        .falling-block:nth-child(2) { left: 78px; animation-delay: 0.35s; }
+        .falling-block:nth-child(3) { left: 144px; animation-delay: 0.7s; }
+        .falling-block:nth-child(4) { left: 45px; animation-delay: 1.05s; }
+        .falling-block:nth-child(5) { left: 111px; animation-delay: 1.4s; }
+        .hero-box {
+            position: relative;
+            width: 230px;
+            height: 148px;
+        }
+        .hero-box .side {
+            position: absolute;
+            border: 2px solid #455a7b;
+            background: rgba(239, 244, 255, 0.65);
+        }
+        .hero-box .base {
+            left: 32px;
+            top: 40px;
+            width: 166px;
+            height: 94px;
+        }
+        .hero-box .flap-left {
+            left: 22px;
+            top: 24px;
+            width: 76px;
+            height: 30px;
+            transform: skewX(-24deg);
+            transform-origin: right bottom;
+        }
+        .hero-box .flap-right {
+            right: 22px;
+            top: 24px;
+            width: 76px;
+            height: 30px;
+            transform: skewX(24deg);
+            transform-origin: left bottom;
+        }
+        .hero-box .fill {
+            position: absolute;
+            left: 48px;
+            top: 56px;
+            width: 134px;
+            height: 66px;
+            background: linear-gradient(to top, rgba(133, 83, 0, 0.2), rgba(133, 83, 0, 0.06));
+            border: 1px solid rgba(133, 83, 0, 0.35);
+        }
+        @keyframes block-drop {
+            0% { transform: translateY(0px); opacity: 0; }
+            15% { opacity: 1; }
+            70% { transform: translateY(100px); opacity: 1; }
+            80% { transform: translateY(106px); opacity: 0.9; }
+            100% { transform: translateY(106px) scale(0.92); opacity: 0; }
+        }
+        @media (max-width: 1024px) {
+            .hero-visual { min-height: 380px; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-max-width mx-auto">
+<div class="flex items-center gap-2">
+<img alt="OptiBox Logo" class="h-12 w-auto" src="Images/LOGO.png"/>
+<span class="font-headline-md text-headline-md font-bold text-secondary-container">OptiBox</span>
+</div>
+<div class="hidden md:flex gap-8">
+<a class="text-secondary-container font-bold border-b-2 border-secondary-container pb-1 font-label-caps text-label-caps" href="#">Platform</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary-container transition-colors duration-200 font-label-caps text-label-caps" href="#">Solutions</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary-container transition-colors duration-200 font-label-caps text-label-caps" href="#">Resources</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block px-4 py-2 text-on-surface font-medium font-label-caps text-label-caps hover:text-secondary-container transition-colors">Login</button>
+<button class="px-6 py-2.5 bg-secondary-container text-primary-container font-bold font-label-caps text-label-caps border border-primary-container/10 active:scale-95 transition-all">Book a Demo</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">NEXT-GEN WAREHOUSE OPTIMIZATION</span>
+</div>
+<h1 class="font-headline-lg text-6xl md:text-7xl leading-tight text-on-surface">
+                    Pack smarter.<br/>Ship cheaper.<br/>Waste less.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Seamlessly connect your ERP and WMS to calculate the most efficient packing configurations in real-time. Eliminate void fill, reduce dimensional weight costs, and automate decision-making at the station.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-secondary-container text-primary-container font-bold font-label-caps text-label-caps border border-primary-container/20 hover:shadow-lg transition-all">BOOK A DEMO</button>
+<button class="px-8 py-4 border border-outline text-on-surface font-bold font-label-caps text-label-caps hover:bg-surface-container transition-all">SEE HOW IT WORKS</button>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-grid"></div>
+<div class="hero-pack-scene" aria-label="Package utilization animation">
+<div class="hero-metrics">
+<div class="hero-pill">78% Vol. Used</div>
+<div class="hero-pill strong">PPWR Certificate</div>
+</div>
+<div class="hero-drop-zone" aria-hidden="true">
+<div class="falling-block"></div>
+<div class="falling-block"></div>
+<div class="falling-block"></div>
+<div class="falling-block"></div>
+<div class="falling-block"></div>
+</div>
+<div class="hero-box" aria-hidden="true">
+<div class="side flap-left"></div>
+<div class="side flap-right"></div>
+<div class="side base"></div>
+<div class="fill"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Every unnecessary centimeter costs money.</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Inefficient packaging doesn't just waste space—it compounds costs across your entire supply chain.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-gutter">
+<div class="bg-surface p-8 border border-outline-variant hover:border-secondary-container transition-colors group">
+<span class="material-symbols-outlined text-4xl text-outline group-hover:text-secondary-container mb-6">straighten</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Oversized parcels</h3>
+<p class="text-on-surface-variant">Shipping air is the most expensive mistake in logistics. Dimensional weight pricing penalizes volume over weight.</p>
+</div>
+<div class="bg-surface p-8 border border-outline-variant hover:border-secondary-container transition-colors group">
+<span class="material-symbols-outlined text-4xl text-outline group-hover:text-secondary-container mb-6">delete_sweep</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Empty space &amp; waste</h3>
+<p class="text-on-surface-variant">Excessive dunnage and oversized boxes drive up material costs and environmental impact unnecessarily.</p>
+</div>
+<div class="bg-surface p-8 border border-outline-variant hover:border-secondary-container transition-colors group">
+<span class="material-symbols-outlined text-4xl text-outline group-hover:text-secondary-container mb-6">psychology_alt</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Manual inconsistencies</h3>
+<p class="text-on-surface-variant">Leaving packing decisions to individual operators leads to inconsistent results and lack of data oversight.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<div class="relative border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<img alt="3D Packing Workflow" class="w-full h-[500px] object-cover" data-alt="A high-tech warehouse packing station with a large digital display showing 3D box optimization wireframes. The lighting is crisp and industrial with a clean, professional atmosphere. An operator is interacting with a touch screen interface that visualizes how items should be layered within a shipping container for maximum space efficiency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAohvnivt2C2pOQ4KrzkKTj9U1P13cJaIxnLeFFoKZNZc7gCp7A_znIVslFDTbMoplD5BkqxGMNPEjs5ZIbyWjbYU8C2FolXexPfcWrHU0hIpHfcZ6EDs2kVbI0Uau-c5SwcITFXgJk3magiSIDGNlROvj9tq7SMEtLs-blUrnZtP-eHSiLpvaEW_W0wfMXPIRhJzRNuWPz4vFdQ6RQM6n0AA0JyQyG0faLbrhu-Pi4NhH3yITogNmBtgNdIfGEeTGjfgLJjGmiRoQr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/80 to-transparent flex items-end p-8">
+<div class="flex gap-4 w-full">
+<div class="flex-1 bg-surface p-4 rounded border border-outline-variant text-center">
+<span class="block text-label-caps font-bold text-outline">STEP 01</span>
+<span class="font-headline-sm text-on-surface">IMPORT</span>
+</div>
+<div class="flex-1 bg-secondary-container p-4 rounded border border-primary-container/20 text-center">
+<span class="block text-label-caps font-bold text-primary-container/60">STEP 02</span>
+<span class="font-headline-sm text-primary-container">CALCULATE</span>
+</div>
+<div class="flex-1 bg-surface p-4 rounded border border-outline-variant text-center">
+<span class="block text-label-caps font-bold text-outline">STEP 03</span>
+<span class="font-headline-sm text-on-surface">OPERATE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">OptiBox calculates the best packing plan before the order reaches the packing table.</h2>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-bold text-primary-container">1</div>
+<div>
+<h4 class="font-bold text-on-surface mb-1">Import Data</h4>
+<p class="text-on-surface-variant">Automated sync with your ERP/WMS to fetch item dimensions, weight, and order details.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-bold text-primary-container">2</div>
+<div>
+<h4 class="font-bold text-on-surface mb-1">Calculate Optimization</h4>
+<p class="text-on-surface-variant">Our algorithms simulate millions of combinations to find the perfect box and orientation.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-bold text-primary-container">3</div>
+<div>
+<h4 class="font-bold text-on-surface mb-1">Show Operator Instructions</h4>
+<p class="text-on-surface-variant">Step-by-step 3D visualizations guide packers to the optimized result in seconds.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="py-24 bg-primary-container text-on-primary-fixed">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="mb-16">
+<span class="text-label-caps text-secondary-container font-bold">CAPABILITIES</span>
+<h2 class="font-headline-lg text-headline-lg mt-2">Built for real warehouse operations.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Feature Card -->
+<div class="p-6 border border-on-primary-fixed-variant bg-surface-container-highest/5 hover:bg-surface-container-highest/10 transition-all">
+<span class="material-symbols-outlined text-secondary-container mb-4">inventory_2</span>
+<h4 class="font-headline-sm text-white mb-2">Cartonization</h4>
+<p class="text-on-primary-container text-body-md">Advanced logic to select the smallest possible box from your available inventory.</p>
+</div>
+<div class="p-6 border border-on-primary-fixed-variant bg-surface-container-highest/5 hover:bg-surface-container-highest/10 transition-all">
+<span class="material-symbols-outlined text-secondary-container mb-4">view_in_ar</span>
+<h4 class="font-headline-sm text-white mb-2">3D Instructions</h4>
+<p class="text-on-primary-container text-body-md">Clear visual guides for operators to reduce mistakes and training time.</p>
+</div>
+<div class="p-6 border border-on-primary-fixed-variant bg-surface-container-highest/5 hover:bg-surface-container-highest/10 transition-all">
+<span class="material-symbols-outlined text-secondary-container mb-4">price_check</span>
+<h4 class="font-headline-sm text-white mb-2">Carrier Comparison</h4>
+<p class="text-on-primary-container text-body-md">Real-time shipping rate calculation based on optimized dimensions.</p>
+</div>
+<div class="p-6 border border-on-primary-fixed-variant bg-surface-container-highest/5 hover:bg-surface-container-highest/10 transition-all">
+<span class="material-symbols-outlined text-secondary-container mb-4">call_split</span>
+<h4 class="font-headline-sm text-white mb-2">Multi-parcel Splitting</h4>
+<p class="text-on-primary-container text-body-md">Intelligently split large orders into multiple shipments for lowest total cost.</p>
+</div>
+<div class="p-6 border border-on-primary-fixed-variant bg-surface-container-highest/5 hover:bg-surface-container-highest/10 transition-all">
+<span class="material-symbols-outlined text-secondary-container mb-4">calculate</span>
+<h4 class="font-headline-sm text-white mb-2">Cost Calculation</h4>
+<p class="text-on-primary-container text-body-md">Track exact packaging material and labor costs per shipped unit.</p>
+</div>
+<div class="p-6 border border-on-primary-fixed-variant bg-surface-container-highest/5 hover:bg-surface-container-highest/10 transition-all">
+<span class="material-symbols-outlined text-secondary-container mb-4">square_foot</span>
+<h4 class="font-headline-sm text-white mb-2">Box Recommendations</h4>
+<p class="text-on-primary-container text-body-md">Data-driven suggestions for adding or removing box sizes in your fleet.</p>
+</div>
+<div class="p-6 border border-on-primary-fixed-variant bg-surface-container-highest/5 hover:bg-surface-container-highest/10 transition-all">
+<span class="material-symbols-outlined text-secondary-container mb-4">integration_instructions</span>
+<h4 class="font-headline-sm text-white mb-2">ERP Integration</h4>
+<p class="text-on-primary-container text-body-md">Native connectors for major ERPs and a robust REST API for custom stacks.</p>
+</div>
+<div class="p-6 border border-on-primary-fixed-variant bg-surface-container-highest/5 hover:bg-surface-container-highest/10 transition-all">
+<span class="material-symbols-outlined text-secondary-container mb-4">eco</span>
+<h4 class="font-headline-sm text-white mb-2">Sustainability Reporting</h4>
+<p class="text-on-primary-container text-body-md">Measure CO2 reduction through reduced volume and material savings.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- EU Regulation Article Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto">
+<article class="bg-white p-12 industrial-border shadow-sm">
+<header class="mb-12 border-b border-outline-variant pb-8">
+<span class="text-label-caps text-secondary-container font-bold mb-4 block">INDUSTRY UPDATE</span>
+<h2 class="font-headline-lg text-4xl mb-4">Preparing for the new EU packaging rules</h2>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="font-label-caps">Logistics Insights</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-caps">Reading Time: 6 min</span>
+</div>
+</header>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-6 leading-relaxed">
+<p>The landscape of European logistics is undergoing a tectonic shift with the introduction of <strong>Regulation (EU) 2025/40</strong>, also known as the Packaging and Packaging Waste Regulation (PPWR). This landmark legislation aims to drastically reduce the environmental footprint of logistics operations by mandating stricter void-space ratios.</p>
+<h3 class="font-headline-sm text-on-surface pt-4">Compliance through Precision</h3>
+<p>Starting in 2025, shippers will be required to prove that their packaging configurations do not exceed specific void-space thresholds. For many, this means moving away from "one-size-fits-some" boxing toward high-precision automated calculation.</p>
+<p>OptiBox provides the technical foundation for compliance by automatically documenting every shipment's volume optimization. Our system generates the necessary reporting data to verify that your operations meet the new environmental standards while simultaneously improving your bottom line.</p>
+<div class="bg-surface-container p-6 border-l-4 border-secondary-container mt-8 italic">
+                    "The shift from voluntary efficiency to regulatory mandate means that box optimization is no longer a 'nice-to-have'—it is a core operational requirement."
+                </div>
+<p class="text-xs pt-12 border-t border-outline-variant text-outline">
+                    OptiBox supports packaging efficiency and reporting, but legal compliance should always be reviewed with regulatory experts.
+                </p>
+</div>
+</article>
+</section>
+<!-- Benefits Cards -->
+<section class="py-24 bg-surface-container">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Lower cost. Less waste. Better packing decisions.</h2>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface p-8 text-center border border-outline-variant">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-secondary-container">trending_down</span>
+</div>
+<h4 class="font-headline-sm mb-2">Reduce shipping costs</h4>
+<p class="text-on-surface-variant text-body-md">Save up to 15% on carrier fees by minimizing dimensional weight.</p>
+</div>
+<div class="bg-surface p-8 text-center border border-outline-variant">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-secondary-container">layers</span>
+</div>
+<h4 class="font-headline-sm mb-2">Reduce material</h4>
+<p class="text-on-surface-variant text-body-md">Lower cardboard and dunnage consumption by choosing the right fit.</p>
+</div>
+<div class="bg-surface p-8 text-center border border-outline-variant">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-secondary-container">rule</span>
+</div>
+<h4 class="font-headline-sm mb-2">Standardize instructions</h4>
+<p class="text-on-surface-variant text-body-md">Ensure every operator packs every order to the same high standard.</p>
+</div>
+<div class="bg-surface p-8 text-center border border-outline-variant">
+<div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-secondary-container">analytics</span>
+</div>
+<h4 class="font-headline-sm mb-2">Improve visibility</h4>
+<p class="text-on-surface-variant text-body-md">Get full data transparency on your packing performance and costs.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Integrations Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-md text-headline-md text-on-surface-variant mb-8 uppercase tracking-widest">Designed to connect with your existing systems.</h2>
+<div class="flex flex-wrap justify-center gap-4">
+<span class="px-6 py-3 border border-outline-variant font-label-caps text-label-caps font-bold hover:border-secondary-container transition-all cursor-default">SAP S/4HANA</span>
+<span class="px-6 py-3 border border-outline-variant font-label-caps text-label-caps font-bold hover:border-secondary-container transition-all cursor-default">ORACLE NETSUITE</span>
+<span class="px-6 py-3 border border-outline-variant font-label-caps text-label-caps font-bold hover:border-secondary-container transition-all cursor-default">MICROSOFT DYNAMICS 365</span>
+<span class="px-6 py-3 border border-outline-variant font-label-caps text-label-caps font-bold hover:border-secondary-container transition-all cursor-default">ODOO</span>
+<span class="px-6 py-3 border border-outline-variant font-label-caps text-label-caps font-bold hover:border-secondary-container transition-all cursor-default">SAGE</span>
+<span class="px-6 py-3 border border-outline-variant font-label-caps text-label-caps font-bold hover:border-secondary-container transition-all cursor-default">CUSTOM REST API</span>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 bg-secondary-container">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto text-center space-y-8">
+<h2 class="font-headline-lg text-5xl md:text-6xl text-primary-container">Ready to optimize every shipment?</h2>
+<p class="font-body-lg text-body-lg text-primary-container/80 max-w-2xl mx-auto">
+                Join hundreds of logistics leaders who have turned their packing stations into a competitive advantage. Start reducing costs today with data-driven precision.
+            </p>
+<div>
+<button class="px-12 py-5 bg-primary-container text-white font-bold font-label-caps text-label-caps border border-primary-container shadow-xl hover:scale-105 active:scale-95 transition-all">BOOK YOUR DEMO NOW</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-gutter w-full px-margin-mobile md:px-margin-desktop py-12 max-w-max-width mx-auto">
+<div class="col-span-2 space-y-4">
+<div class="flex items-center gap-2">
+<img alt="OptiBox Logo" class="h-6 w-6" src="Images/LOGO.png"/>
+<span class="font-headline-sm text-headline-sm font-bold text-secondary-container">OptiBox</span>
+</div>
+<p class="text-on-surface-variant pr-8">Engineered for Industrial Precision. The leading platform for automated cartonization and logistics optimization.</p>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-caps text-label-caps font-bold text-on-surface">Platform</h5>
+<ul class="space-y-2 text-body-md text-on-surface-variant">
+<li><a class="hover:text-secondary-container transition-colors" href="#">3D Optimizer</a></li>
+<li><a class="hover:text-secondary-container transition-colors" href="#">API Docs</a></li>
+<li><a class="hover:text-secondary-container transition-colors" href="#">Integrations</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-caps text-label-caps font-bold text-on-surface">Solutions</h5>
+<ul class="space-y-2 text-body-md text-on-surface-variant">
+<li><a class="hover:text-secondary-container transition-colors" href="#">E-commerce</a></li>
+<li><a class="hover:text-secondary-container transition-colors" href="#">Manufacturing</a></li>
+<li><a class="hover:text-secondary-container transition-colors" href="#">3PL Logistics</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-caps text-label-caps font-bold text-on-surface">Resources</h5>
+<ul class="space-y-2 text-body-md text-on-surface-variant">
+<li><a class="hover:text-secondary-container transition-colors" href="#">EU Regulations</a></li>
+<li><a class="hover:text-secondary-container transition-colors" href="#">Case Studies</a></li>
+<li><a class="hover:text-secondary-container transition-colors" href="#">Webinars</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-label-caps text-label-caps font-bold text-on-surface">Legal</h5>
+<ul class="space-y-2 text-body-md text-on-surface-variant">
+<li><a class="hover:text-secondary-container transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-secondary-container transition-colors" href="#">Legal Disclaimer</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-6 text-center">
+<p class="font-label-caps text-[10px] text-outline px-margin-mobile">© 2024 OptiBox Logistics Systems. Engineered for Industrial Precision.</p>
+</div>
+</footer>
+</body></html>

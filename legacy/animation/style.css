@@ -1,0 +1,124 @@
+:root {
+  --bg: #fdfdfd;
+  --dark: #1a1c22;
+  --accent: #ffb703;
+  --blue: #3b82f6; --red: #ef4444; --green: #22c55e; --yellow: #eab308;
+}
+
+#optibox-hero {
+  position: relative;
+  display: block;
+  font-family: sans-serif; background: var(--bg);
+  width: 100%; max-width: 480px; aspect-ratio: 1 / 1;
+  padding: 14px;
+}
+
+.stage {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 0; text-align: center;
+}
+.label { font-weight: 800; font-size: 11px; color: #94a3b8; margin-bottom: 12px; letter-spacing: 1px; }
+
+/* ERP Window */
+.erp-window {
+  width: 320px; height: 250px; background: linear-gradient(180deg, #ffffff 0%, #fff7ed 100%);
+  border: 1px solid #fed7aa; border-radius: 10px; box-shadow: 0 10px 25px -5px rgba(251,146,60,0.08);
+  padding: 16px;
+}
+.erp-top {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+}
+.erp-icon {
+  font-size: 28px; color: #f59e0b; flex-shrink: 0;
+}
+.erp-top-title {
+  font-size: 13px; font-weight: 700; color: #9a3412; line-height: 1.1;
+}
+.erp-top-subtitle {
+  font-size: 10px; font-weight: 600; color: #b45309; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.erp-header { height: 8px; background: linear-gradient(90deg, #fed7aa, #e2e8f0); width: 60%; margin-bottom: 15px; }
+.erp-row { height: 6px; background: #f8fafc; margin-bottom: 8px; border-radius: 2px; }
+.erp-row.highlight { background: #ffedd5; border: 1px solid #fdba74; }
+.erp-items { margin-top: 8px; display: grid; gap: 6px; }
+.erp-item {
+  font-size: 9px; font-weight: 700; color: #c2410c; letter-spacing: 0.08em;
+  text-transform: uppercase; background: #fff7ed; border: 1px solid #fed7aa;
+  border-radius: 999px; padding: 3px 8px; width: fit-content;
+}
+
+#stage-erp .label {
+  color: #f59e0b;
+}
+
+/* OptiBox Mockup */
+.app-mockup {
+  width: 440px; height: 260px; background: white; border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1); display: flex; overflow: hidden;
+}
+.app-sidebar { width: 42px; background: var(--dark); padding: 12px 6px; }
+.side-item { height: 15px; background: #334155; margin-bottom: 10px; border-radius: 3px; }
+.side-item.active { background: var(--accent); }
+.app-content { flex: 1; padding: 16px; background: #fafafa; display: flex; gap: 12px; }
+
+.cost-cards { width: 120px; display: flex; flex-direction: column; gap: 10px; }
+.card { background: white; border-radius: 6px; padding: 8px; border: 1px solid #e2e8f0; }
+.card.best { border-color: var(--accent); box-shadow: 0 4px 12px rgba(251,191,36,0.1); }
+.card-tag { font-size: 6px; font-weight: bold; color: var(--accent); margin-bottom: 4px; }
+.price { font-size: 14px; font-weight: bold; color: var(--dark); }
+.price.small { color: #94a3b8; font-size: 10px; }
+
+/* 3D Wireframe Area */
+.packing-view {
+  flex: 1; background: #0f172a; border-radius: 8px; position: relative;
+  perspective: 800px; overflow: hidden;
+}
+.wireframe-box {
+  position: absolute; top: 50%; left: 50%; width: 150px; height: 100px;
+  border: 1px solid rgba(255,255,255,0.2); transform: translate(-50%, -50%) rotateX(55deg) rotateZ(-28deg);
+  transform-style: preserve-3d;
+}
+.item { position: absolute; transform-style: preserve-3d; transition: all 0.5s ease; opacity: 0; }
+.blue { width: 60px; height: 40px; bottom: 0; left: 0; background: var(--blue); transform: translateZ(10px); }
+.red { width: 40px; height: 30px; top: 0; left: 0; background: var(--red); transform: translateZ(15px); }
+.green { width: 50px; height: 20px; bottom: 0; right: 0; background: var(--green); transform: translateZ(5px); }
+.yellow { width: 20px; height: 20px; top: 10px; right: 10px; background: var(--yellow); transform: translateZ(20px); }
+
+/* Connector removed */
+
+/* Shipping Stage */
+.ship-panel {
+  width: 280px; height: 170px; background: white; border: 1px solid #e2e8f0;
+  border-radius: 10px; box-shadow: 0 12px 26px -8px rgba(0,0,0,0.08);
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.ship-box {
+  width: 38px; height: 32px; border: 2px solid #fbbf24; background: #fffbeb;
+  border-radius: 6px; box-shadow: inset 0 0 0 2px rgba(251,191,36,0.2);
+}
+.truck { position: relative; width: 60px; height: 28px; }
+.truck-body {
+  position: absolute; left: 0; bottom: 6px; width: 38px; height: 14px;
+  background: #334155; border-radius: 3px;
+}
+.truck-cab {
+  position: absolute; left: 38px; bottom: 6px; width: 20px; height: 12px;
+  background: #475569; border-radius: 3px 6px 4px 3px;
+}
+.wheel {
+  position: absolute; bottom: 0; width: 10px; height: 10px; background: #0f172a;
+  border-radius: 50%;
+}
+.wheel.left { left: 6px; }
+.wheel.right { left: 40px; }
+
+@media (max-width: 900px) {
+  #optibox-hero {
+    max-width: 100%;
+    aspect-ratio: auto;
+    min-height: 520px;
+  }
+  .app-mockup { width: 100%; max-width: 420px; }
+  .ship-panel { width: 100%; max-width: 260px; }
+}
