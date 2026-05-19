@@ -20,7 +20,35 @@ const STEPS = [
 
 export function SolutionSection() {
   return (
-    <section className="mx-auto max-w-max-width px-margin-mobile py-24 md:px-margin-desktop">
+    <section className="relative overflow-hidden bg-surface py-24">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.55]"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(11,28,48,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(11,28,48,0.06) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage:
+            "radial-gradient(ellipse at 50% 50%, black 0%, transparent 72%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at 50% 50%, black 0%, transparent 72%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "linear-gradient(30deg, rgba(254,166,25,0.08) 1px, transparent 1px), linear-gradient(150deg, rgba(254,166,25,0.08) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage:
+            "radial-gradient(ellipse at 30% 40%, black 0%, transparent 55%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at 30% 40%, black 0%, transparent 55%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-max-width px-margin-mobile md:px-margin-desktop">
       <div className="grid items-center gap-16 lg:grid-cols-2">
         <div className="order-2 lg:order-1">
           <div className="relative overflow-hidden rounded-2xl border border-outline-variant bg-surface shadow-lg">
@@ -70,6 +98,7 @@ export function SolutionSection() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

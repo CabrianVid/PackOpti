@@ -4,7 +4,6 @@ import { Hero } from "@/components/sections/Hero";
 import { ProblemSection } from "@/components/sections/ProblemSection";
 import { SolutionSection } from "@/components/sections/SolutionSection";
 import { FeatureShowcase } from "@/components/sections/FeatureShowcase";
-import { FeaturesGrid } from "@/components/sections/FeaturesGrid";
 import { EUArticle } from "@/components/sections/EUArticle";
 import { BenefitsCards } from "@/components/sections/BenefitsCards";
 import { Integrations } from "@/components/sections/Integrations";
@@ -19,7 +18,6 @@ export default function HomePage() {
         <ProblemSection />
         <SolutionSection />
         <FeatureShowcase />
-        <FeaturesGrid />
         <EUArticle />
         <BenefitsCards />
         <Integrations />
