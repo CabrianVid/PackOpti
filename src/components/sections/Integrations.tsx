@@ -9,7 +9,7 @@ const INTEGRATIONS = [
 
 export function Integrations() {
   return (
-    <section className="mx-auto max-w-max-width px-margin-mobile py-24 md:px-margin-desktop">
+    <section id="integrations" className="scroll-mt-28 mx-auto max-w-max-width px-margin-mobile py-24 md:px-margin-desktop">
       <div className="mb-12 text-center">
         <h2 className="font-headline-md mb-8 text-headline-md uppercase tracking-widest text-on-surface-variant">
           Designed to connect with your existing systems.

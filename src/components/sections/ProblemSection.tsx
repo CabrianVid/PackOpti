@@ -242,7 +242,7 @@ function PackageArt({ parcel }: { parcel: Parcel }) {
 
 export function ProblemSection() {
   return (
-    <section className="relative overflow-hidden bg-primary-container py-28 md:py-32">
+    <section id="why-optibox" className="relative scroll-mt-28 overflow-hidden bg-primary-container py-28 md:py-32">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.16]"
         aria-hidden

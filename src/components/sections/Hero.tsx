@@ -4,15 +4,9 @@ import { Button } from "@/components/ui/Button";
 
 export function Hero() {
   return (
-    <section className="mx-auto max-w-max-width px-margin-mobile pb-20 pt-32 md:px-margin-desktop">
+    <section id="top" className="mx-auto max-w-max-width scroll-mt-28 px-margin-mobile pb-20 pt-32 md:px-margin-desktop">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container px-3 py-1">
-            <span className="h-2 w-2 rounded-full bg-secondary-container" />
-            <span className="font-label-caps text-label-caps text-on-surface-variant">
-              NEXT-GEN WAREHOUSE OPTIMIZATION
-            </span>
-          </div>
           <h1 className="font-headline-lg text-6xl leading-tight text-on-surface md:text-7xl">
             Pack smarter.
             <br />

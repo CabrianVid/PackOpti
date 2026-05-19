@@ -12,8 +12,8 @@ type Feature = {
   image: string;
 };
 
-const AUTO_ADVANCE_MS = 1000;
-const TRANSITION_MS = 500;
+const AUTO_ADVANCE_MS = 5000;
+const TRANSITION_MS = 800;
 
 const FEATURES: Feature[] = [
   {
@@ -80,7 +80,7 @@ export function FeatureShowcase() {
   }
 
   return (
-    <section className="bg-surface-container-low py-24">
+    <section id="platform" className="scroll-mt-28 bg-surface-container-low py-24">
       <div className="mx-auto max-w-max-width px-margin-mobile md:px-margin-desktop">
         <div className="mb-12">
           <span className="text-label-caps font-bold text-secondary-container">THE PLATFORM</span>
@@ -97,7 +97,7 @@ export function FeatureShowcase() {
                 <div
                   key={f.id}
                   className={clsx(
-                    "border bg-surface transition-all duration-500 ease-in-out",
+                    "border bg-surface transition-all duration-700 ease-out",
                     isActive
                       ? "border-secondary-container shadow-md"
                       : "border-outline-variant hover:border-on-surface-variant",
@@ -116,23 +116,23 @@ export function FeatureShowcase() {
                     onClick={() => selectTab(idx)}
                     onKeyDown={(e) => handleKey(e, idx)}
                     className={clsx(
-                      "block w-full text-left transition-all duration-500 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-container",
+                      "block w-full text-left transition-all duration-700 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-container",
                       isActive ? "px-7 pb-2 pt-7" : "px-7 py-5",
                     )}
                   >
                     {isActive ? (
-                      <h3 className="font-headline-md text-headline-md text-on-surface transition-opacity duration-500">
+                      <h3 className="font-headline-md text-headline-md text-on-surface transition-opacity duration-700 ease-out">
                         {f.title}
                       </h3>
                     ) : (
-                      <h3 className="text-headline-sm font-bold text-on-surface-variant transition-opacity duration-500">
+                      <h3 className="text-headline-sm font-bold text-on-surface-variant transition-opacity duration-700 ease-out">
                         {f.title}
                       </h3>
                     )}
                   </button>
                   <div
                     className={clsx(
-                      "grid transition-all duration-500 ease-in-out",
+                      "grid transition-all duration-700 ease-out",
                       isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
                     )}
                   >
@@ -165,10 +165,13 @@ export function FeatureShowcase() {
                 width={1600}
                 height={1000}
                 className={clsx(
-                  "absolute inset-0 h-full w-full object-contain transition-opacity ease-in-out",
+                  "absolute inset-0 h-full w-full object-contain transition-opacity ease-out",
                   idx === activeIdx ? "opacity-100" : "pointer-events-none opacity-0",
                 )}
-                style={{ transitionDuration: `${TRANSITION_MS}ms` }}
+                style={{
+                  transitionDuration: `${TRANSITION_MS}ms`,
+                  transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+                }}
               />
             ))}
           </div>

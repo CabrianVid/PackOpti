@@ -2,7 +2,7 @@ import { ContactSalesButton } from "@/components/ui/ContactSalesButton";
 
 export function FinalCTA() {
   return (
-    <section className="bg-secondary-container py-24">
+    <section id="demo" className="scroll-mt-28 bg-secondary-container py-24">
       <div className="mx-auto max-w-max-width space-y-8 px-margin-mobile text-center md:px-margin-desktop">
         <h2 className="font-headline-lg text-5xl text-primary-container md:text-6xl">
           Ready to optimize every shipment?

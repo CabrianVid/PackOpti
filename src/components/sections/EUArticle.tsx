@@ -1,18 +1,18 @@
 export function EUArticle() {
   return (
-    <section className="mx-auto max-w-4xl px-margin-mobile py-24 md:px-margin-desktop">
+    <section id="ppwr" className="scroll-mt-28 mx-auto max-w-4xl px-margin-mobile py-24 md:px-margin-desktop">
       <article className="industrial-border bg-white p-12 shadow-sm">
         <header className="mb-12 border-b border-outline-variant pb-8">
           <span className="text-label-caps mb-4 block font-bold text-secondary-container">
             INDUSTRY UPDATE
           </span>
           <h2 className="font-headline-lg mb-4 text-4xl">
-            Preparing for the new EU packaging rules
+            Preparing for the new EU packaging rules - PPWR
           </h2>
           <div className="flex items-center gap-4 text-on-surface-variant">
             <span className="font-label-caps">Logistics Insights</span>
             <span className="h-1 w-1 rounded-full bg-outline-variant" />
-            <span className="font-label-caps">Reading Time: 6 min</span>
+            <span className="font-label-caps">Reading Time: 2 min</span>
           </div>
         </header>
         <div className="font-body-lg space-y-6 text-body-lg leading-relaxed text-on-surface-variant">
@@ -24,7 +24,7 @@ export function EUArticle() {
           </p>
           <h3 className="font-headline-sm pt-4 text-on-surface">Compliance through Precision</h3>
           <p>
-            Starting in 2025, shippers will be required to prove that their packaging configurations
+            Starting in 2026, shippers will be required to prove that their packaging configurations
             do not exceed specific void-space thresholds. For many, this means moving away from
             &quot;one-size-fits-some&quot; boxing toward high-precision automated calculation.
           </p>
@@ -39,7 +39,7 @@ export function EUArticle() {
             optimization is no longer a &apos;nice-to-have&apos;—it is a core operational
             requirement.&quot;
           </div>
-          <p className="border-t border-outline-variant pt-12 text-xs text-outline">
+          <p id="legal-disclaimer" className="scroll-mt-28 border-t border-outline-variant pt-12 text-xs text-outline">
             OptiBox supports packaging efficiency and reporting, but legal compliance should always
             be reviewed with regulatory experts.
           </p>

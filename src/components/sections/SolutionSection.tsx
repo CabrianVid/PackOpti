@@ -20,7 +20,7 @@ const STEPS = [
 
 export function SolutionSection() {
   return (
-    <section className="relative overflow-hidden bg-surface py-24">
+    <section id="how-it-works" className="relative scroll-mt-28 overflow-hidden bg-surface py-24">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.55]"
         aria-hidden
