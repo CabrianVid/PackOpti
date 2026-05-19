@@ -19,9 +19,11 @@ const ORDER_BANDS = [
 ] as const;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const FORMSPARK_FORM_ID = process.env.NEXT_PUBLIC_FORMSPARK_FORM_ID;
 
 export function ContactSalesModal({ open, onOpenChange }: Props) {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   function handleClose(nextOpen: boolean) {
@@ -29,23 +31,61 @@ export function ContactSalesModal({ open, onOpenChange }: Props) {
     if (!nextOpen) {
       setTimeout(() => {
         setSubmitted(false);
+        setIsSubmitting(false);
         setError(null);
       }, 200);
     }
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
+
     const data = new FormData(e.currentTarget);
+    const honeypot = (data.get("_honeypot") as string | null)?.trim() ?? "";
+    if (honeypot) return;
+
     const email = (data.get("email") as string | null)?.trim() ?? "";
     if (!EMAIL_REGEX.test(email)) {
       setError("Please enter a valid work email address.");
       return;
     }
-    const payload = Object.fromEntries(data.entries());
-    console.log("[ContactSales] submission:", payload);
-    setSubmitted(true);
+
+    if (!FORMSPARK_FORM_ID) {
+      setError("Form is not configured. Please contact us directly.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`https://submit-form.com/${FORMSPARK_FORM_ID}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          firstName: data.get("firstName"),
+          lastName: data.get("lastName"),
+          email,
+          company: data.get("company"),
+          orders: data.get("orders"),
+          referral: data.get("referral"),
+          _replyto: email,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("FormSpark submission failed");
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again in a moment.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -88,6 +128,14 @@ export function ContactSalesModal({ open, onOpenChange }: Props) {
               </div>
             ) : (
               <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+                <input
+                  type="text"
+                  name="_honeypot"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden
+                />
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <Field id="firstName" name="firstName" label="First name" required />
                   <Field id="lastName" name="lastName" label="Last name" required />
@@ -150,12 +198,13 @@ export function ContactSalesModal({ open, onOpenChange }: Props) {
                     type="button"
                     variant="outline"
                     size="md"
+                    disabled={isSubmitting}
                     onClick={() => handleClose(false)}
                   >
                     CANCEL
                   </Button>
-                  <Button type="submit" variant="primary" size="md">
-                    SUBMIT
+                  <Button type="submit" variant="primary" size="md" disabled={isSubmitting}>
+                    {isSubmitting ? "SUBMITTING..." : "SUBMIT"}
                   </Button>
                 </div>
               </form>
