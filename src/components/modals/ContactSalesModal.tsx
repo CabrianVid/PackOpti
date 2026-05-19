@@ -45,9 +45,17 @@ export function ContactSalesModal({ open, onOpenChange }: Props) {
     const honeypot = (data.get("_honeypot") as string | null)?.trim() ?? "";
     if (honeypot) return;
 
+    const firstName = (data.get("firstName") as string | null)?.trim() ?? "";
+    const lastName = (data.get("lastName") as string | null)?.trim() ?? "";
     const email = (data.get("email") as string | null)?.trim() ?? "";
+
+    if (!firstName || !lastName) {
+      setError("Please enter your first and last name.");
+      return;
+    }
+
     if (!EMAIL_REGEX.test(email)) {
-      setError("Please enter a valid work email address.");
+      setError("Please enter a valid email address.");
       return;
     }
 
@@ -59,21 +67,28 @@ export function ContactSalesModal({ open, onOpenChange }: Props) {
     setIsSubmitting(true);
 
     try {
+      const company = (data.get("company") as string | null)?.trim() ?? "";
+      const orders = (data.get("orders") as string | null)?.trim() ?? "";
+      const referral = (data.get("referral") as string | null)?.trim() ?? "";
+
+      const payload: Record<string, string> = {
+        firstName,
+        lastName,
+        email,
+        _replyto: email,
+      };
+
+      if (company) payload.company = company;
+      if (orders) payload.orders = orders;
+      if (referral) payload.referral = referral;
+
       const response = await fetch(`https://submit-form.com/${FORMSPARK_FORM_ID}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          firstName: data.get("firstName"),
-          lastName: data.get("lastName"),
-          email,
-          company: data.get("company"),
-          orders: data.get("orders"),
-          referral: data.get("referral"),
-          _replyto: email,
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
@@ -143,29 +158,28 @@ export function ContactSalesModal({ open, onOpenChange }: Props) {
                 <Field
                   id="email"
                   name="email"
-                  label="Work Email"
+                  label="Email"
                   type="email"
                   required
                   inputMode="email"
                   autoComplete="email"
                 />
-                <Field id="company" name="company" label="Company name" required />
+                <Field id="company" name="company" label="Company name" optional />
                 <div className="space-y-2">
                   <label
                     htmlFor="orders"
                     className="block text-label-caps font-label-caps font-bold text-on-surface"
                   >
-                    Estimated Orders Fulfilled Annually <Required />
+                    Estimated orders fulfilled annually <Optional />
                   </label>
                   <select
                     id="orders"
                     name="orders"
-                    required
                     defaultValue=""
                     className="w-full appearance-none border border-outline-variant bg-white px-4 py-3 text-body-md text-on-surface focus:border-secondary-container focus:outline-none focus:ring-2 focus:ring-secondary-container/30"
                   >
                     {ORDER_BANDS.map((b) => (
-                      <option key={b.value} value={b.value} disabled={b.value === ""}>
+                      <option key={b.value || "empty"} value={b.value}>
                         {b.label}
                       </option>
                     ))}
@@ -176,12 +190,11 @@ export function ContactSalesModal({ open, onOpenChange }: Props) {
                     htmlFor="referral"
                     className="block text-label-caps font-label-caps font-bold text-on-surface"
                   >
-                    How did you hear about us? <Required />
+                    How did you hear about us? <Optional />
                   </label>
                   <textarea
                     id="referral"
                     name="referral"
-                    required
                     rows={3}
                     className="w-full resize-none border border-outline-variant bg-white px-4 py-3 text-body-md text-on-surface focus:border-secondary-container focus:outline-none focus:ring-2 focus:ring-secondary-container/30"
                   />
@@ -224,13 +237,20 @@ function Required() {
   );
 }
 
+function Optional() {
+  return (
+    <span className="font-normal normal-case text-on-surface-variant">(optional)</span>
+  );
+}
+
 type FieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   id: string;
   name: string;
   label: string;
+  optional?: boolean;
 };
 
-function Field({ id, name, label, required, ...rest }: FieldProps) {
+function Field({ id, name, label, required, optional, ...rest }: FieldProps) {
   return (
     <div className="space-y-2">
       <label
@@ -238,6 +258,7 @@ function Field({ id, name, label, required, ...rest }: FieldProps) {
         className="block text-label-caps font-label-caps font-bold text-on-surface"
       >
         {label} {required ? <Required /> : null}
+        {optional ? <Optional /> : null}
       </label>
       <input
         id={id}
