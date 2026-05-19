@@ -23,16 +23,16 @@ export function SolutionSection() {
     <section className="mx-auto max-w-max-width px-margin-mobile py-24 md:px-margin-desktop">
       <div className="grid items-center gap-16 lg:grid-cols-2">
         <div className="order-2 lg:order-1">
-          <div className="relative overflow-hidden rounded-xl border border-outline-variant shadow-sm">
+          <div className="relative overflow-hidden rounded-2xl border border-outline-variant bg-surface shadow-lg">
             <Image
-              src="/images/dashboard.png"
+              src="/images/plan.png"
               alt="3D Packing Workflow"
               width={1200}
               height={700}
-              className="h-[500px] w-full object-cover"
+              className="h-[520px] w-full object-cover object-center"
               priority={false}
             />
-            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-primary-container/80 to-transparent p-8">
+            <div className="absolute inset-0 flex items-end bg-gradient-to-t from-primary-container/85 via-primary-container/30 to-transparent p-8">
               <div className="flex w-full gap-4">
                 <div className="flex-1 rounded border border-outline-variant bg-surface p-4 text-center">
                   <span className="text-label-caps block font-bold text-outline">STEP 01</span>

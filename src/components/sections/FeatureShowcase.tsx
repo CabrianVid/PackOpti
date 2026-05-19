@@ -12,31 +12,27 @@ type Feature = {
   image: string;
 };
 
-/**
- * Per-item images intentionally point to the same screenshot for now;
- * swap individual entries here when the matching dashboard assets exist.
- */
 const FEATURES: Feature[] = [
   {
     id: "instructions",
     title: "Generate cost-optimal packing instructions for every order.",
     description:
       "A flexible cartonization engine that turns each incoming order into a clear, cost-optimal pack plan in milliseconds — accounting for carrier rates, material costs, and operator constraints.",
-    image: "/images/dashboard.png",
+    image: "/images/plan.png",
   },
   {
     id: "lineup",
-    title: "Find your ideal lineup of boxes and mailers.",
+    title: "Choose the best carrier from every available option.",
     description:
-      "Simulate thousands of historical orders against any box set to discover which sizes you should add, drop, or reorder — without disrupting your live operation.",
-    image: "/images/dashboard.png",
+      "Compare all connected carrier services and route each shipment to the right option based on price, delivery promise, parcel profile, and business rules.",
+    image: "/images/carriers.png",
   },
   {
     id: "performance",
-    title: "Packing performance at a glance.",
+    title: "Optimize container usage across your full in-house inventory.",
     description:
-      "Monitor void fill, dimensional weight savings, and per-station throughput on one dashboard so you can spot drift before it hits your shipping bill.",
-    image: "/images/dashboard.png",
+      "Map all containers used in your firm and let the program recommend the optimal container for every order, reducing wasted space and standardizing pack quality.",
+    image: "/images/containers.png",
   },
 ];
 

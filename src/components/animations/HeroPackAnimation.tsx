@@ -287,7 +287,7 @@ export function HeroPackAnimation() {
         </span>
         <span className="hero-iso-label label-volume">
           <span>{activePack.volume}% volume used</span>
-          <span className="hero-iso-certificate">PPWR</span>
+          <span className="hero-iso-certificate">PPWR approved</span>
         </span>
 
         <div className="hero-iso-saved" aria-hidden>
