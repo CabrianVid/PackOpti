@@ -3,6 +3,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
+import { FORMSPARK_SUBMIT_URL } from "@/lib/formspark";
 
 type Props = {
   open: boolean;
@@ -19,7 +20,6 @@ const ORDER_BANDS = [
 ] as const;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const FORMSPARK_FORM_ID = process.env.NEXT_PUBLIC_FORMSPARK_FORM_ID;
 
 export function ContactSalesModal({ open, onOpenChange }: Props) {
   const [submitted, setSubmitted] = useState(false);
@@ -59,11 +59,6 @@ export function ContactSalesModal({ open, onOpenChange }: Props) {
       return;
     }
 
-    if (!FORMSPARK_FORM_ID) {
-      setError("Form is not configured. Please contact us directly.");
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
@@ -82,7 +77,7 @@ export function ContactSalesModal({ open, onOpenChange }: Props) {
       if (orders) payload.orders = orders;
       if (referral) payload.referral = referral;
 
-      const response = await fetch(`https://submit-form.com/${FORMSPARK_FORM_ID}`, {
+      const response = await fetch(FORMSPARK_SUBMIT_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
