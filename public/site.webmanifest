@@ -1,0 +1,16 @@
+{
+  "name": "OptiBox",
+  "short_name": "OptiBox",
+  "description": "Pack smarter. Ship cheaper. Waste less.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f9ff",
+  "theme_color": "#131b2e",
+  "icons": [
+    {
+      "src": "/images/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

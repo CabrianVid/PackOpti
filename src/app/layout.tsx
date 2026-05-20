@@ -28,6 +28,16 @@ export const metadata: Metadata = {
   title: "OptiBox | Pack smarter. Ship cheaper. Waste less.",
   description:
     "Seamlessly connect your ERP and WMS to calculate the most efficient packing configurations in real-time. Eliminate void fill, reduce dimensional weight costs, and automate decision-making at the station.",
+  icons: {
+    icon: [{ url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" }],
+    shortcut: "/images/favicon-32x32.png",
+    apple: "/images/favicon-32x32.png",
+  },
+  manifest: "/site.webmanifest",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8f9ff" },
+    { media: "(prefers-color-scheme: dark)", color: "#131b2e" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
