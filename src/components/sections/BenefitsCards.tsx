@@ -9,8 +9,8 @@ const STATS: Stat[] = [
     label: "lower shipping spend",
   },
   {
-    value: "~13%",
-    label: "reduced corrugated usage",
+    value: "~9%",
+    label: "time saved when packing",
   },
   {
     value: "~22%",

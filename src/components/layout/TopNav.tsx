@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { NavSectionLink } from "@/components/navigation/NavSectionLink";
 import { ContactSalesButton } from "@/components/ui/ContactSalesButton";
 import { NAV_LINKS } from "@/lib/sections";
 
@@ -22,9 +23,7 @@ export function TopNav() {
         </Link>
         <div className="hidden gap-8 md:flex">
           {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className={navLinkClass}>
-              {link.label}
-            </Link>
+            <NavSectionLink key={link.href} href={link.href} label={link.label} className={navLinkClass} />
           ))}
         </div>
         <div className="flex items-center gap-4">

@@ -45,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       className={`light ${inter.variable} ${hanken.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
     >
       <head>
         {/* Material Symbols is an icon font with variation axes that next/font
@@ -57,7 +58,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className="overflow-x-hidden bg-surface text-on-surface">
+      <body
+        className="overflow-x-hidden bg-surface text-on-surface"
+        suppressHydrationWarning
+      >
         <ContactSalesProvider>{children}</ContactSalesProvider>
       </body>
     </html>
