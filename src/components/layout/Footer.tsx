@@ -12,9 +12,9 @@ export function Footer() {
             <Image
               src="/images/OptiB.png"
               alt="OptiBox"
-              width={140}
-              height={34}
-              className="h-7 w-auto"
+              width={160}
+              height={39}
+              className="h-8 w-auto"
             />
           </Link>
           <p className="pr-8 text-on-surface-variant">

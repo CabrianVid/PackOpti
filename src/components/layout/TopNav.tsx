@@ -14,9 +14,9 @@ export function TopNav() {
           <Image
             src="/images/OptiB.png"
             alt="OptiBox"
-            width={200}
-            height={60}
-            className="h-10 w-auto"
+            width={240}
+            height={72}
+            className="h-12 w-auto"
             priority
           />
         </Link>
