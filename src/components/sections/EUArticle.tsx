@@ -29,7 +29,7 @@ export function EUArticle() {
             &quot;one-size-fits-some&quot; boxing toward high-precision automated calculation.
           </p>
           <p>
-            OptiBox provides the technical foundation for compliance by automatically documenting
+            PackOpti provides the technical foundation for compliance by automatically documenting
             every shipment&apos;s volume optimization. Our system generates the necessary reporting
             data to verify that your operations meet the new environmental standards while
             simultaneously improving your bottom line.
@@ -40,7 +40,7 @@ export function EUArticle() {
             requirement.&quot;
           </div>
           <p id="legal-disclaimer" className="scroll-mt-28 border-t border-outline-variant pt-12 text-xs text-outline">
-            OptiBox supports packaging efficiency and reporting, but legal compliance should always
+            PackOpti supports packaging efficiency and reporting, but legal compliance should always
             be reviewed with regulatory experts.
           </p>
         </div>

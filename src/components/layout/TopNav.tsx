@@ -11,10 +11,10 @@ export function TopNav() {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-outline-variant bg-surface/90 shadow-sm backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-max-width items-center justify-between px-margin-mobile py-4 md:px-margin-desktop">
-        <Link href="/" className="inline-flex items-center" aria-label="OptiBox home">
+        <Link href="/" className="inline-flex items-center" aria-label="PackOpti home">
           <Image
             src="/images/OptiB.png"
-            alt="OptiBox"
+            alt="PackOpti"
             width={240}
             height={72}
             className="h-12 w-auto"

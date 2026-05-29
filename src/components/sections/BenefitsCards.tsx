@@ -99,7 +99,7 @@ export function BenefitsCards() {
             Lower cost. Less waste. Better packing decisions.
           </h2>
           <p className="mt-5 max-w-xl text-body-lg text-on-surface-variant">
-            OptiBox turns every order into a measurable packing outcome, reducing
+            PackOpti turns every order into a measurable packing outcome, reducing
             spend, less material, and fewer oversized parcels leaving your dock.
           </p>
         </div>

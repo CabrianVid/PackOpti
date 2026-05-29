@@ -8,10 +8,10 @@ export function Footer() {
     <footer className="border-t border-outline-variant bg-surface-container-low">
       <div className="mx-auto grid w-full max-w-max-width grid-cols-2 gap-gutter px-margin-mobile py-12 md:grid-cols-4 md:px-margin-desktop lg:grid-cols-6">
         <div className="col-span-2 space-y-4">
-          <Link href="/" className="inline-flex items-center" aria-label="OptiBox home">
+          <Link href="/" className="inline-flex items-center" aria-label="PackOpti home">
             <Image
               src="/images/OptiB.png"
-              alt="OptiBox"
+              alt="PackOpti"
               width={160}
               height={39}
               className="h-8 w-auto"
@@ -80,7 +80,7 @@ export function Footer() {
       </div>
       <div className="border-t border-outline-variant/30 py-6 text-center">
         <p className="font-label-caps px-margin-mobile text-[10px] text-outline">
-          © 2025 OptiBox Logistics Systems. Engineered for Industrial Precision.
+          © 2025 PackOpti Logistics Systems. Engineered for Industrial Precision.
         </p>
       </div>
     </footer>

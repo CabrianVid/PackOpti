@@ -1,8 +1,8 @@
-# OptiBox
+# PackOpti
 
 > Pack smarter. Ship cheaper. Waste less.
 
-Marketing site for OptiBox — built with **Next.js 15 (App Router) + TypeScript + Tailwind CSS**.
+Marketing site for PackOpti — built with **Next.js 15 (App Router) + TypeScript + Tailwind CSS**.
 
 ## Quick start
 

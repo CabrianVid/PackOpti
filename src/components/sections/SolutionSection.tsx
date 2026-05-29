@@ -82,7 +82,7 @@ export function SolutionSection() {
         </div>
         <div className="order-1 space-y-8 lg:order-2">
           <h2 className="font-headline-lg text-headline-lg text-on-surface">
-            OptiBox calculates the best packing plan before the order reaches the packing table.
+            PackOpti calculates the best packing plan before the order reaches the packing table.
           </h2>
           <div className="space-y-6">
             {STEPS.map((s) => (

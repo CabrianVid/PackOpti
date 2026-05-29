@@ -129,7 +129,7 @@ export function ContactSalesModal({ open, onOpenChange }: Props) {
                   </span>
                 </div>
                 <p className="text-body-lg text-on-surface-variant">
-                  Your request has been received. An OptiBox specialist will reach out within one
+                  Your request has been received. A PackOpti specialist will reach out within one
                   business day.
                 </p>
                 <Button variant="primary" size="md" onClick={() => handleClose(false)}>

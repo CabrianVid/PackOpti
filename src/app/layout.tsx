@@ -25,7 +25,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OptiBox | Pack smarter. Ship cheaper. Waste less.",
+  title: "PackOpti | Pack smarter. Ship cheaper. Waste less.",
   description:
     "Seamlessly connect your ERP and WMS to calculate the most efficient packing configurations in real-time. Eliminate void fill, reduce dimensional weight costs, and automate decision-making at the station.",
   icons: {
@@ -48,6 +48,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
+        <link
+          rel="icon"
+          href="/images/favicon-32x32.png"
+          type="image/png"
+          sizes="32x32"
+        />
+        <link rel="shortcut icon" href="/images/favicon-32x32.png" />
         {/* Material Symbols is an icon font with variation axes that next/font
             cannot model. Loading via <link> in the root layout is the correct
             and recommended pattern; the lint rule below is targeted only at

@@ -1,6 +1,6 @@
 {
-  "name": "OptiBox",
-  "short_name": "OptiBox",
+  "name": "PackOpti",
+  "short_name": "PackOpti",
   "description": "Pack smarter. Ship cheaper. Waste less.",
   "start_url": "/",
   "display": "standalone",

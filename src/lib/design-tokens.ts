@@ -1,5 +1,5 @@
 /**
- * OptiBox design tokens (single source of truth for non-Tailwind consumers).
+ * PackOpti design tokens (single source of truth for non-Tailwind consumers).
  *
  * Tailwind already exposes these via `tailwind.config.ts`. Use this module
  * only when you need a token value in TypeScript code (e.g. inline styles in

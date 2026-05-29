@@ -1,8 +1,8 @@
 {
-  "name": "optibox",
+  "name": "packopti",
   "version": "0.1.0",
   "private": true,
-  "description": "OptiBox — Pack smarter. Ship cheaper. Waste less.",
+  "description": "PackOpti — Pack smarter. Ship cheaper. Waste less.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
